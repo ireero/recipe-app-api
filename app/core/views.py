@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import ImagemSerializer
+from .models import Imagem
 
-# Create your views here.
+class ImagemViewSet(generics.ListCreateAPIView):
+
+    queryset = Imagem.objects.all()
+    serializer_class = ImagemSerializer
